@@ -4,13 +4,20 @@ var cheerio = require("cheerio");
 var Comment = require("../models/comments.js");
 var Article = require("../models/articles.js");
 var router = express.Router();
+var axios = require("axios");
+var mongoose = require("mongoose");
+
+
 
 // Routes
+router.get("/", function(req, res) {
+    res.render("index");
+  });
 
 // A GET route for scraping the NPR website
 app.get("/scrape", function(req, res) {
     // First, we grab the body of the html with axios
-    axios.get("https://www.npr.org/sections/science").then(function(response) {
+    axios.get("https://www.nytimes.com").then(function(response) {
       // Then, we load that into cheerio and save it to $ for a shorthand selector
       var $ = cheerio.load(response.data);
   
