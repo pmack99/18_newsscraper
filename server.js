@@ -16,9 +16,9 @@ var port = process.env.PORT || 3000;
 var app = express();
 
 // Use body parser with the app
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
+// app.use(bodyParser.urlencoded({
+//   extended: false
+// }));
 
 
 
@@ -36,6 +36,6 @@ mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true 
 
 
 // Start the server
-app.listen(PORT, function() {
-  console.log("App running on port " + PORT + "!");
+app.listen(port, function() {
+  console.log("App running on port " + port + "!");
 });

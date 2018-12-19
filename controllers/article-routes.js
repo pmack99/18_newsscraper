@@ -7,15 +7,15 @@ var router = express.Router();
 
 // Routes
 
-// A GET route for scraping the echoJS website
+// A GET route for scraping the NPR website
 app.get("/scrape", function(req, res) {
     // First, we grab the body of the html with axios
-    axios.get("https://www.npr.org/sections/news/archive").then(function(response) {
+    axios.get("http://www.echojs.com/").then(function(response) {
       // Then, we load that into cheerio and save it to $ for a shorthand selector
       var $ = cheerio.load(response.data);
   
       // Now, we grab every h2 within an article tag, and do the following:
-      $("title h2").each(function(i, element) {
+      $("article h2").each(function(i, element) {
         // Save an empty result object
         var result = {};
   
