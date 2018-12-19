@@ -14,7 +14,7 @@ router.get("/", function(req, res) {
     res.render("index");
   });
 
-// A GET route for scraping the NPR website
+// A GET route for scraping the NYT website
 app.get("/scrape", function(req, res) {
     // First, we grab the body of the html with axios
     axios.get("https://www.nytimes.com").then(function(response) {
