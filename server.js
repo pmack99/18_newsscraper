@@ -1,6 +1,9 @@
 var express = require("express");
+var request = require("request");
 var logger = require("morgan");
 var mongoose = require("mongoose");
+var articleRouter = require("./controllers/article-routes.js");
+var exphbs = require("express-handlebars");
 
 // Our scraping tools
 // Axios is a promised-based http library, similar to jQuery's Ajax method
@@ -15,11 +18,11 @@ var db = require("./models");
 var port = process.env.PORT || 3000;
 var app = express();
 
-// Use body parser with the app
-// app.use(bodyParser.urlencoded({
-//   extended: false
-// }));
+// Initialize Handlebars
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
+app.use("/", articleRouter);
 
 
 // Use morgan logger for logging requests
@@ -31,7 +34,10 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/unit18Populator", { useNewUrlParser: true });
+
+
+
 
 
 
