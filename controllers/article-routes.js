@@ -1,12 +1,9 @@
 var express = require("express");
 var request = require("request");
 var cheerio = require("cheerio");
-var Comment = require("../models/comments.js");
-var Article = require("../models/articles.js");
+var Comment = require("./models/Comment.js");
+var Article = require("./models/Article.js");
 var router = express.Router();
-var axios = require("axios");
-var mongoose = require("mongoose");
-
 
 
 // Routes
@@ -15,14 +12,14 @@ router.get("/", function(req, res) {
   });
 
 // A GET route for scraping the NYT website
-app.get("/scrape", function(req, res) {
+router.get("/scrape", function(req, res) {
     // First, we grab the body of the html with axios
-    axios.get("https://www.nytimes.com").then(function(response) {
+    axios.get("https://www.washingtonpost.com").then(function(response) {
       // Then, we load that into cheerio and save it to $ for a shorthand selector
       var $ = cheerio.load(response.data);
   
       // Now, we grab every h2 within an article tag, and do the following:
-      $("article h2").each(function(i, element) {
+      $(".headline h2").each(function(i, element) {
         // Save an empty result object
         var result = {};
   
@@ -52,7 +49,7 @@ app.get("/scrape", function(req, res) {
   });
   
   // Route for getting all Articles from the db
-  app.get("/articles", function(req, res) {
+  router.get("/articles", function(req, res) {
     // Grab every document in the Articles collection
     db.Article.find({})
       .then(function(dbArticle) {
@@ -66,7 +63,7 @@ app.get("/scrape", function(req, res) {
   });
   
   // Route for grabbing a specific Article by id, populate it with it's note
-  app.get("/articles/:id", function(req, res) {
+  router.get("/articles/:id", function(req, res) {
     // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
     db.Article.findOne({ _id: req.params.id })
       // ..and populate all of the notes associated with it
@@ -82,7 +79,7 @@ app.get("/scrape", function(req, res) {
   });
   
   // Route for saving/updating an Article's associated Note
-  app.post("/articles/:id", function(req, res) {
+  router.post("/articles/:id", function(req, res) {
     // Create a new note and pass the req.body to the entry
     db.Comment.create(req.body)
       .then(function(dbComment) {
