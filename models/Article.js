@@ -8,19 +8,19 @@ var NprArticleSchema = new Schema({
   // title is a required string
   title: {
     type: String,
-    required: true,
+    required: false,
     unique: true
   },
   // description is a required string
-  description: {
+  link: {
     type: String,
-    required: true,
+    required: false,
     unique: true
   },
   // boolean to flag articles as saved
   saved: {
     type: Boolean,
-    required: true,
+    required: false,
     default: false
   },
   // This will save an array of comments' ObjectIds

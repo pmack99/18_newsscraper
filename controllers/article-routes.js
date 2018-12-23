@@ -18,7 +18,7 @@ router.get("/", function(req, res) {
 // A GET route for scraping the NYT website
 router.get("/scrape", function(req, res) {
    
-    axios.get("https://www.nytimes.com/").then(function(response) {
+    axios.get("https://www.reddit.com/r/news/").then(function(response) {
       
       var $ = cheerio.load(response.data);
   
@@ -27,7 +27,7 @@ router.get("/scrape", function(req, res) {
         
         var result = {};
   
-        result.title = $(this)
+        result.title= $(this)
           .children("a")
           .text();
         result.link = $(this)
