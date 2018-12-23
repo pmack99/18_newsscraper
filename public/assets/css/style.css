@@ -60,10 +60,10 @@ textarea {
 
 .jumbotron-top {
 
-  background-image: url("https://www.eparent.com/wp-content/uploads/2018/06/NYTimes-banner.jpg");
+  background-image: url("https://cdn-images-1.medium.com/max/1600/1*DFcaAvca6kvNa-6EYMYYdA.png");
   background-size: cover;
-  background-size: 100%, 100%;
-  height:200px;
+  background-size: 65%, 65%;
+  height:300px;
   border-radius: 20px;
   
 }
