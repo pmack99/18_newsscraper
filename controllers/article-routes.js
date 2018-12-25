@@ -23,18 +23,13 @@ router.get("/scrape", function(req, res) {
       var $ = cheerio.load(response.data);
   
      
-      $("article h2").each(function(i, element) {
-        
-        var result = {};
+  $('article span').each(function(i, element){
+    const title = $(this).children('a').find('h2').text();
+    const link = $(this).children('a').attr('href');
   
-        result.title= $(this)
-          .children("a")
-          .text();
-        result.link = $(this)
-          .children("a")
-          .attr("href");
+  if (!title || !link) return;
   
-        db.Article.create(result)
+        db.Article.create({title, link})
           .then(function(dbArticle) {
             
             console.log(dbArticle);
