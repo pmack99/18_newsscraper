@@ -4,34 +4,34 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 // Create article schema
-var NprArticleSchema = new Schema({
+var ArticleSchema = new Schema({
   // title is a required string
   title: {
     type: String,
-    required: false,
+    required: true,
     unique: true
   },
   // description is a required string
   link: {
     type: String,
-    required: false,
+    required: true,
     unique: true
   },
   // boolean to flag articles as saved
   saved: {
     type: Boolean,
-    required: false,
+    required: true,
     default: false
   },
   // This will save an array of comments' ObjectIds
-  comments:[{
-        type: Schema.ObjectId,
-        ref:'comment'
-    }]
+  // comments:[{
+  //       type: Schema.ObjectId,
+  //       ref:'comment'
+  //   }]
 });
 
 // Create the Article model with the ArticleSchema
-var Article = mongoose.model("articles", NprArticleSchema);
+var Article = mongoose.model("articles", ArticleSchema);
 
 // Export the model
 module.exports = Article;

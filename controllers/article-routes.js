@@ -28,7 +28,7 @@ router.get("/scrape", function(req, res) {
     const link = $(this).children('a').attr('href');
   
   if (!title || !link) return;
-  
+
         db.Article.create({title, link})
           .then(function(dbArticle) {
             
