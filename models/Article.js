@@ -9,13 +9,13 @@ var ArticleSchema = new Schema({
   title: {
     type: String,
     required: true,
-    unique: true
+    // unique: true
   },
   // description is a required string
   link: {
     type: String,
     required: true,
-    unique: true
+    // unique: true
   },
   // boolean to flag articles as saved
   saved: {
