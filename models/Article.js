@@ -27,7 +27,7 @@ var ArticleSchema = new Schema({
   // comments:[{
   //       type: Schema.ObjectId,
   //       ref:'comment'
-  //   }]
+    // }]
 });
 
 // Create the Article model with the ArticleSchema
