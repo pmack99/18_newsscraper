@@ -8,14 +8,14 @@ var ArticleSchema = new Schema({
   // title is a required string
   title: {
     type: String,
-    required: true,
-    // unique: true
+    required: true
+    
   },
   // description is a required string
   link: {
     type: String,
-    required: true,
-    // unique: true
+    required: true
+    
   },
   // boolean to flag articles as saved
   saved: {
@@ -23,15 +23,15 @@ var ArticleSchema = new Schema({
     required: true,
     default: false
   },
-  // This will save an array of comments' ObjectIds
-  // comments:[{
-  //       type: Schema.ObjectId,
-  //       ref:'comment'
-    // }]
+
+  comment: {
+    type: Schema.Types.ObjectId,
+    ref: "Comment"
+  }
 });
 
 // Create the Article model with the ArticleSchema
-var Article = mongoose.model("articles", ArticleSchema);
+var Article = mongoose.model("Article", ArticleSchema);
 
 // Export the model
 module.exports = Article;
