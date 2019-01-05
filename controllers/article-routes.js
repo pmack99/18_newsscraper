@@ -4,7 +4,7 @@ var router = express.Router();
 var axios = require("axios");
 var cheerio = require("cheerio");
 
-var Comment = require("../models/Comment.js");
+var Comment = require("../models/Note.js");
 var Article = require("../models/Article.js");
 var db = require("../models");
 
