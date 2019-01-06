@@ -24,9 +24,8 @@ $.getJSON("/articles", function(data) {
       .then(function(data) {
         console.log(data);
         // The title of the article
-        $("#notes").append("<h2>" + data.title + "</h2>");
-        // An input to enter a new title
-        $("#notes").append("<input id='titleinput' name='title' >");
+        $("#notes").append("<h3>" + data.title + "</h3>");
+       
         // A textarea to add a new note body
         $("#notes").append("<textarea id='bodyinput' name='body'></textarea>");
         // A button to submit a new note, with the id of the article saved to it
@@ -34,8 +33,7 @@ $.getJSON("/articles", function(data) {
   
         // If there's a comment in the article
         if (data.note) {
-          // Place the title of the note in the title input
-          $("#titleinput").val(data.note.title);
+        
           // Place the body of the note in the body textarea
           $("#bodyinput").val(data.note.body);
         }
@@ -52,8 +50,8 @@ $.getJSON("/articles", function(data) {
       method: "POST",
       url: "/articles/" + thisId,
       data: {
-        // Value taken from title input
-        title: $("#titleinput").val(),
+      
+        
         // Value taken from note textarea
         body: $("#bodyinput").val()
       }
@@ -66,8 +64,8 @@ $.getJSON("/articles", function(data) {
         $("#notes").empty();
       });
   
-    // Also, remove the values entered in the input and textarea for note entry
-    $("#titleinput").val("");
+    // Also, remove the values entered in the textarea for note entry
+   
     $("#bodyinput").val("");
   });
   

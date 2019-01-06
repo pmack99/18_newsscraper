@@ -22,10 +22,12 @@ router.get("/scrape", function(req, res) {
       
       var $ = cheerio.load(response.data);
   
-     
+      
   $('article span').each(function(i, element){
     const title = $(this).children('a').find('h2').text();
-    const link = $(this).children('a').attr('href');
+    const link = $(this).parent().next().find('a').attr('href');
+
+    // const link = $(this).children('a').attr('href');
   
   if (!title || !link) return;
 

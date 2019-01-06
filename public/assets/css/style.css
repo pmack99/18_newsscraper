@@ -15,11 +15,28 @@ h1{
   overflow: auto;
   width: 60%;
   height: 700px;
+  font-size: 20px;
 }
+
+#articles p{
+  
+  font-size: 20px;
+}
+
+
 #notes {
   float: right;
   width: 30%;
+  font-size: 20px;
 }
+
+#notes h3 {
+ 
+  font-size: 20px;
+}
+
+
+
 textarea, input {
   display: block;
   width: 100%;
