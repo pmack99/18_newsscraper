@@ -27,7 +27,9 @@ $.getJSON("/articles", function(data) {
         console.log(data);
         // The title of the article
         $("#notes").append("<h3>" + data.title + "</h3>");
-        $("#notes").append("<a href>" + data.link+  "target= 'blank'" + "</a>");
+        $("#notes").append("<a href>" + data.link + "</a>");
+        // $("#notes").attr("href", data.link);
+    
        
         // A textarea to add a new note body
         $("#notes").append("<textarea id='bodyinput' name='body'></textarea>");
