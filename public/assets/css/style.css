@@ -19,7 +19,7 @@ h1{
   
 }
 
-#articles p{
+#articles p {
   
   font-size: 18px;
 }
@@ -34,7 +34,12 @@ h1{
 
 #notes h3 {
  
-  font-size: 20px;
+  font-size: 18px;
+}
+
+#notes a {
+ 
+  font-size: 15px;
 }
 
 
