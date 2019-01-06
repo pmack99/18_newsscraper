@@ -33,11 +33,11 @@ $.getJSON("/articles", function(data) {
         $("#notes").append("<button data-id='" + data._id + "' id='savecomment'>Save Comment</button>");
   
         // If there's a comment in the article
-        if (data.comment) {
+        if (data.note) {
           // Place the title of the note in the title input
-          $("#titleinput").val(data.comment.title);
+          $("#titleinput").val(data.note.title);
           // Place the body of the note in the body textarea
-          $("#bodyinput").val(data.comment.body);
+          $("#bodyinput").val(data.note.body);
         }
       });
   });
