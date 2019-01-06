@@ -26,8 +26,10 @@ $.getJSON("/articles", function(data) {
       .then(function(data) {
         console.log(data);
         // The title of the article
+        var url = $(this).attr(data.link);
+
         $("#notes").append("<h3>" + data.title + "</h3>");
-        $("#notes").append("<a href>" + data.link + "</a>");
+        $("#notes").append('<a href= url > Link </a>' );
         // $("#notes").attr("href", data.link);
     
        
