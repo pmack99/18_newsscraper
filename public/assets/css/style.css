@@ -15,12 +15,13 @@ h1{
   overflow: auto;
   width: 60%;
   height: 700px;
-  font-size: 20px;
+  font-size: 30px;
+  
 }
 
 #articles p{
   
-  font-size: 20px;
+  font-size: 18px;
 }
 
 
@@ -28,6 +29,7 @@ h1{
   float: right;
   width: 30%;
   font-size: 20px;
+  font-size: 30px;
 }
 
 #notes h3 {

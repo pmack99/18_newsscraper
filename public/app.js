@@ -2,12 +2,14 @@
 $.getJSON("/articles", function(data) {
     // For each one
     for (var i = 0; i < data.length; i++) {
-      // Display the apropos information on the page
-      $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
+    
+      // Display the information on the page
+      $("#articles").append("<p data-id='"  + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link  + "</p>");
     }
   });
   
-  
+
+
   // Whenever someone clicks a p tag
   $(document).on("click", "p", function() {
     // Empty the notes from the note section
@@ -29,7 +31,7 @@ $.getJSON("/articles", function(data) {
         // A textarea to add a new note body
         $("#notes").append("<textarea id='bodyinput' name='body'></textarea>");
         // A button to submit a new note, with the id of the article saved to it
-        $("#notes").append("<button data-id='" + data._id + "' id='savecomment'>Save Comment</button>");
+        $("#notes").append("<button data-id='" + data._id + "' id='savenote'>Save Comment</button>");
   
         // If there's a comment in the article
         if (data.note) {
@@ -41,7 +43,7 @@ $.getJSON("/articles", function(data) {
   });
   
   // When you click the savenote button
-  $(document).on("click", "#savecomment", function() {
+  $(document).on("click", "#savenote", function() {
     // Grab the id associated with the article from the submit button
     var thisId = $(this).attr("data-id");
   
@@ -51,7 +53,7 @@ $.getJSON("/articles", function(data) {
       url: "/articles/" + thisId,
       data: {
       
-        
+
         // Value taken from note textarea
         body: $("#bodyinput").val()
       }
