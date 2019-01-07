@@ -7,7 +7,7 @@ When you launch the CLI app, this webpage is availabe on localhost:3000
 
 You hit the "scrape articles" button on top, and the app will run. 
 AFter the scrape is done, return to the localhost:3000 and the articles will be saved and displayed. 
-![Image of required files](./images/1.png)
+![Image of required files](/images/1.png)
 
 When you click the headline, a popup box will display on the right. The link to the story as well as a textbox for a note is generated. You can eave a note and save it, or just go read the story. 
-![Image of required files](./images/2.png)
+![Image of required files](/images/2.png)
