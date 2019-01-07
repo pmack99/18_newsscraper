@@ -29,7 +29,7 @@ $.getJSON("/articles", function(data) {
         var url = $(this).attr(data.link);
 
         $("#notes").append("<h3>" + data.title + "</h3>");
-        $('#notes').append('<a href="' + data.link + '" target="_blank">' + data.link +'</a>');
+        $('#notes').append('<a href="' + data.link + '" target="_blank">' + "Link to Article" +'</a>');
         // $("#notes").attr("href", data.link);
     
        
